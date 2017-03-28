@@ -23,8 +23,15 @@ router.get('/:id', function(req, res, next){
 })
 
 router.post('/', function(req, res, next){
-  console.log('hey');
-  res.end();
+  knex('posts')
+    .insert({
+      'user_id': 1,
+      'title': req.body.title,
+      'body': req.body.body
+    })
+    .then(function(data) {
+      res.redirect('/posts');
+    })
 })
 
 
