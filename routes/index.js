@@ -27,7 +27,7 @@ router.post('/', function(req, res, next){
           })
       }else{
         res.cookie('userID', data[0].id);
-        res.render('index');
+        res.redirect('/posts');
       }
       // console.log(data);
       // res.end();
